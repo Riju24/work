@@ -21,7 +21,7 @@ public class StudentDaoImpl implements StudentDao{
 	public String insert(Student s) {
 		
 		String sql = "Insert into Student values(?,?,?)";
-		int r = jdbcTemplate.update(sql,s.getId(),s.getMarks(),s.getName());
+		int r = jdbcTemplate.update(sql,s.getId(),s.getName(),s.getMarks());
 	
 		if(r>0)
 		{

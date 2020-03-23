@@ -19,18 +19,23 @@ public class AppTest {
 	private AnnotationConfigApplicationContext cntx;
 	private StudentDao st;
 	private Student s;
-	@BeforeClass
+	
+	@Before
 	public void setup()
 	{
 		cntx = new AnnotationConfigApplicationContext(AppConfig.class);
 		
-		st = (StudentDao) cntx.getBean("studdao");
+		st = (StudentDao) cntx.getBean("studao");
 		s = (Student) cntx.getBean("student");
 	}
 	
 	@Test
 	public void testInsert() {
-		assertEquals("Sucess",st.insert(s));
+		
+		s.setId(124);
+		s.setName("KP");
+		s.setMarks(20);
+		assertEquals("Success",st.insert(s));
 	}
 	
 	@Test

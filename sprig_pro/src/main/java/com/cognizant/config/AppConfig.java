@@ -9,12 +9,18 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import com.cognizant.dao.StudentDao;
 import com.cognizant.dao.StudentDaoImpl;
+import com.cognizant.model.Student;
 
 @Configuration
 public class AppConfig {
 	
+	@Bean("student")
+	public Student student()
+	{
+		return new Student();
+	}
 	@Bean("studao")
-	public  StudentDao stdentDao()
+	public StudentDao stdentDao()
 	{
 		return new StudentDaoImpl();
 	}
@@ -31,8 +37,8 @@ public class AppConfig {
 	{
 		DriverManagerDataSource ds = new DriverManagerDataSource();
 		ds.setUsername("root");
-		ds.setPassword("root");
-		ds.setUrl("jdbc:mysql://localhost:3306/student_db");
+		ds.setPassword("Titly@123");
+		ds.setUrl("jdbc:mysql://localhost:3306/work");
 		ds.setDriverClassName("com.mysql.jdbc.Driver");
 		
 		return ds;
